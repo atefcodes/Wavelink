@@ -92,6 +92,6 @@ For spotify support, simply install and use [LavaSrc](https://github.com/topi314
 
 ### Notes
 
-- Wavelink **3** is compatible with Lavalink **v4+**.
+- Wavelink **3** is compatible with Lavalink **v4+** [including DAVE support].
 - Wavelink has built in support for Lavalink Plugins including LavaSrc and SponsorBlock.
 - Wavelink is fully typed in compliance with Pyright Strict, though some nuances remain between discord.py and wavelink.
