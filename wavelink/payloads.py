@@ -390,17 +390,20 @@ class VoiceStatePayload:
     Attributes
     ----------
     token: str | None
-        The Discord voice token authenticated with. This is not the same as your bots token. Could be ``None``.
+        The Discord voice token authenticated with.
     endpoint: str | None
-        The Discord voice endpoint connected to. Could be ``None``.
+        The Discord voice endpoint connected to.
     session_id: str | None
-        The Discord voice session ID autheticated with. Could be ``None``.
+        The Discord voice session ID authenticated with.
+    channel_id: str | None
+        The specific Discord voice channel ID. Required for DAVE.
     """
 
     def __init__(self, data: VoiceStateResponse) -> None:
         self.token: str | None = data.get("token")
         self.endpoint: str | None = data.get("endpoint")
         self.session_id: str | None = data.get("sessionId")
+        self.channel_id: str | None = data.get("channelId")
 
 
 class PlayerResponsePayload:
