@@ -769,7 +769,7 @@ class Player(discord.VoiceProtocol):
         self._connected = True
 
         self._voice_state["voice"]["session_id"] = data["session_id"]
-        self._voice_state["channel_id"] = channel_id  # Dave update
+        self._voice_state["channel_id"] = str(channel_id)  # Dave update
         self.channel = self.client.get_channel(int(channel_id))  # type: ignore
 
     async def on_voice_server_update(self, data: VoiceServerUpdatePayload, /) -> None:
@@ -785,7 +785,7 @@ class Player(discord.VoiceProtocol):
         session_id: str | None = data.get("session_id", None)
         token: str | None = data.get("token", None)
         endpoint: str | None = data.get("endpoint", None)
-        channel_id: str | None = data.get("channel_id", None)
+        channel_id: str | None = self._voice_state.get("channel_id", None)
         if not session_id or not token or not endpoint:
             return
 
